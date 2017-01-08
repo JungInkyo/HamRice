@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HamRice</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
