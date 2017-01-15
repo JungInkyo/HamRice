@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import kr.teamcadi.hamrice.R;
 
@@ -25,7 +28,7 @@ public class register extends Activity
         etPassword = (EditText)findViewById(R.id.etPassword);
         etUsername = (EditText)findViewById(R.id.etUsername);
         etAge = (EditText)findViewById(R.id.etAge);
-
+        
         btnRegister = (Button)findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
