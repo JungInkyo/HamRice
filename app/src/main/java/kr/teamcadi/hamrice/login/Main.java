@@ -7,51 +7,35 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import kr.teamcadi.hamrice.R;
 
-public class Login extends Activity
+public class Main extends Activity
 {
-    Button btnLogin;
+
+    Button btnLogout;
     EditText etId, etPassword;
-    TextView registerLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_main);
 
         etId = (EditText) findViewById(R.id.etId);
         etPassword = (EditText) findViewById(R.id.etPassword);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        registerLink = (TextView)findViewById(R.id.tRegisterLink);
+        btnLogout = (Button) findViewById(R.id.btnLogout);
 
-        registerLink.setOnClickListener(new View.OnClickListener()
+        btnLogout.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 switch (v.getId())
                 {
-                case R.id.tRegisterLink:
-                startActivity(new Intent(Login.this, register.class));
-                break;
-                }
-            }
-        });
-
-        btnLogin.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                switch (v.getId())
-                {
-                    case R.id.btnRegister:
+                    case R.id.btnLogout:
+                        startActivity(new Intent(Main.this, Login.class));
                         break;
-
                 }
             }
         });
