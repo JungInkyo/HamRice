@@ -1,10 +1,11 @@
-package kr.teamcadi.hamrice;
+package kr.teamcadi.hamrice.Main;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
 
+import kr.teamcadi.hamrice.R;
 import kr.teamcadi.hamrice.login.Login;
 
 public class MainActivity extends Activity

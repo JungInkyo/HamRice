@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import kr.teamcadi.hamrice.Chat.ChatMain;
 import kr.teamcadi.hamrice.R;
 
 public class Login extends Activity
@@ -51,7 +52,9 @@ public class Login extends Activity
                 {
                     case R.id.btnRegister:
                         break;
-
+                    case R.id.btnLogin:
+                        startActivity(new Intent(Login.this, ChatMain.class));
+                        break;
                 }
             }
         });
