@@ -2,8 +2,8 @@ package kr.teamcadi.hamrice.Chat;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +17,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
+import kr.teamcadi.hamrice.Data.MainListData;
 import kr.teamcadi.hamrice.R;
 
 public class ChatMain extends Activity
@@ -51,9 +51,21 @@ public class ChatMain extends Activity
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id){
-                ChatListData mData = mAdapter.mListData.get(position);
-                Toast.makeText(ChatMain.this, mData.mTitle, Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> parent, View v, int position, long l)
+            {
+                MainListData mData = mAdapter.mListData.get(position);
+
+                switch(position)
+                {
+                    case 0:
+                        Intent MainToProfile = new Intent(ChatMain.this, ChattingActivity.class);
+                        startActivity(MainToProfile);
+                        finish();
+                        break;
+                    case 1:
+                        Toast.makeText(ChatMain.this, "롹앤롤 베이비!", Toast.LENGTH_SHORT).show();
+                        break;
+                }
             }
         });
 
@@ -72,7 +84,7 @@ public class ChatMain extends Activity
     private class ListViewAdapter extends BaseAdapter
     {
         private Context mContext = null;
-        private ArrayList<ChatListData> mListData = new ArrayList<ChatListData>();
+        private ArrayList<MainListData> mListData = new ArrayList<MainListData>();
 
         public ListViewAdapter(Context mContext) {
             super();
@@ -112,7 +124,7 @@ public class ChatMain extends Activity
                     holder = (ViewHolder) convertView.getTag();
                 }
 
-                ChatListData mData = mListData.get(position);
+                MainListData mData = mListData.get(position);
 
                 if (mData.mIcon != null) {
                     holder.mIcon.setVisibility(View.VISIBLE);
@@ -131,8 +143,8 @@ public class ChatMain extends Activity
         public void addItem(Drawable icon, String mTitle, String mHuman)
 
         {
-            ChatListData addInfo = null;
-            addInfo = new ChatListData();
+            MainListData addInfo = null;
+            addInfo = new MainListData();
             addInfo.mIcon = icon;
             addInfo.mTitle = mTitle;
             addInfo.mHuman = mHuman;
@@ -146,7 +158,7 @@ public class ChatMain extends Activity
         }
 
         public void sort(){
-            Collections.sort(mListData, ChatListData.ALPHA_COMPARATOR);
+            Collections.sort(mListData, MainListData.ALPHA_COMPARATOR);
             dataChange();
         }
 

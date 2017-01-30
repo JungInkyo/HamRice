@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chatting_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kr.teamcadi.hamrice.Chat.ChattingActivity">
+
+    <ListView
+        android:id="@+id/ChattingListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <EditText
+            android:id="@+id/EnterMsgArea"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:lines="1"
+            android:maxLines="1"
+            android:hint="메시지를 입력하세요."/>
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전송"/>
+    </LinearLayout>
+</RelativeLayout>

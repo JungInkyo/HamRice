@@ -1,4 +1,4 @@
-package kr.teamcadi.hamrice.Chat;
+package kr.teamcadi.hamrice.Data;
 
 import android.graphics.drawable.Drawable;
 
@@ -9,7 +9,7 @@ import java.util.Comparator;
  * Created by gaejalsaeng-ginmingug on 2017. 1. 22..
  */
 
-public class ChatListData
+public class MainListData
 {
     /**
      * 리스트 정보를 담고 있을 객체 생성
@@ -26,11 +26,11 @@ public class ChatListData
     /**
      * 알파벳 이름으로 정렬
      */
-    public static final Comparator<ChatListData> ALPHA_COMPARATOR = new Comparator<ChatListData>() {
+    public static final Comparator<MainListData> ALPHA_COMPARATOR = new Comparator<MainListData>() {
         private final Collator sCollator = Collator.getInstance();
 
         @Override
-        public int compare(ChatListData mListDate_1, ChatListData mListDate_2) {
+        public int compare(MainListData mListDate_1, MainListData mListDate_2) {
             return sCollator.compare(mListDate_1.mTitle, mListDate_2.mTitle);
         }
     };
