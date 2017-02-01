@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +46,7 @@ public class ChatMain extends Activity
                 "돼지고기먹으러가실분",
                 "1/2");
         mAdapter.addItem(getResources().getDrawable(R.drawable.ic_launcher),
-                "6시에같이밥먹을분",
+                "소고기 무면 머하겠노",
                 "2/3");
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -65,6 +66,8 @@ public class ChatMain extends Activity
                     case 1:
                         Toast.makeText(ChatMain.this, "롹앤롤 베이비!", Toast.LENGTH_SHORT).show();
                         break;
+                    case 2:
+                        Toast.makeText(ChatMain.this, "그래두 무야지!", Toast.LENGTH_LONG).show();
                 }
             }
         });
