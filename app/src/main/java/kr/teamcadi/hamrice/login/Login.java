@@ -17,6 +17,7 @@ public class Login extends Activity
     Button btnLogin;
     EditText etId, etPassword;
     TextView registerLink;
+    Button endbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,6 +29,7 @@ public class Login extends Activity
         etPassword = (EditText) findViewById(R.id.etPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         registerLink = (TextView)findViewById(R.id.tRegisterLink);
+        endbtn = (Button)findViewById(R.id.endbtn);
 
         registerLink.setOnClickListener(new View.OnClickListener()
         {
@@ -58,5 +60,14 @@ public class Login extends Activity
                 }
             }
         });
+
+        endbtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                finish();
+            }
+        }); //함밥 종료 버튼
     }
 }
