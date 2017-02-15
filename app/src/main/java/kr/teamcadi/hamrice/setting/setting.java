@@ -1,12 +1,15 @@
 package kr.teamcadi.hamrice.setting;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
+import kr.teamcadi.hamrice.Chat.ChatMain;
 import kr.teamcadi.hamrice.R;
 
 public class setting extends Activity
@@ -17,6 +20,7 @@ public class setting extends Activity
     Button alim_btn;
     Button frndset_btn;
     Button gogack_btn;
+    Button setback_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,5 +40,20 @@ public class setting extends Activity
         frndset_btn.setBackgroundColor(Color.WHITE);
         gogack_btn = (Button)findViewById(R.id.gogack_btn);
         gogack_btn.setBackgroundColor(Color.WHITE);
+
+        setback_btn = (Button)findViewById(R.id.setback_btn);
+
+        setback_btn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent gochathwa = new Intent(setting.this, ChatMain.class);
+                startActivity(gochathwa);
+            }
+        });
+
+
+
     }
 }
