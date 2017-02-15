@@ -31,7 +31,8 @@
         <activity android:name=".login.Login" />
         <activity android:name=".login.Main" />
         <activity android:name=".Chat.ChatMain" />
-        <activity android:name=".Chat.ChattingActivity"></activity>
+        <activity android:name=".Chat.ChattingActivity" />
+        <activity android:name=".setting.setting"></activity>
     </application>
 
 </manifest>

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +22,7 @@ import java.util.Collections;
 import kr.teamcadi.hamrice.Data.MainListData;
 import kr.teamcadi.hamrice.R;
 import kr.teamcadi.hamrice.login.Login;
-import kr.teamcadi.hamrice.login.Main;
+import kr.teamcadi.hamrice.setting.setting;
 
 public class ChatMain extends Activity
 {
@@ -31,6 +30,7 @@ public class ChatMain extends Activity
     private ListView mListView = null;
     private ListViewAdapter mAdapter = null;
     Button ctoutbtn;
+    Button setting_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,6 +40,7 @@ public class ChatMain extends Activity
 
         mListView = (ListView) findViewById(R.id.mList);
         ctoutbtn = (Button)findViewById(R.id.ctoutbtn);
+        setting_btn = (Button) findViewById(R.id.setting_btn);
 
         mAdapter = new ListViewAdapter(this);
         mListView.setAdapter(mAdapter);
@@ -86,6 +87,15 @@ public class ChatMain extends Activity
             }
         }); //로그아웃으로 가는 버튼
 
+        setting_btn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent gosetting = new Intent(ChatMain.this, setting.class);
+                startActivity(gosetting);
+            }
+        });
 
     }
 
