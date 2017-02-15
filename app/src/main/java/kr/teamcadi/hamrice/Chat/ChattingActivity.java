@@ -62,7 +62,6 @@ public class ChattingActivity extends Activity
 
                     EnterMsgArea.setText(""); // 메시지를 입력받는 창 초기화.
                     chattingListViewAdapter.dataChange(); // 데이터 동기화.
-                    chattingListViewAdapter.notifyDataSetChanged();
 
                 }
             }
