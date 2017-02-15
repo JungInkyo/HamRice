@@ -2,9 +2,11 @@ package kr.teamcadi.hamrice.Chat;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.res.ResourcesCompat;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,7 @@ import java.util.Calendar;
 import kr.teamcadi.hamrice.Data.ChatListData;
 import kr.teamcadi.hamrice.Data.ChatListData;
 import kr.teamcadi.hamrice.R;
+import kr.teamcadi.hamrice.login.Login;
 
 public class ChattingActivity extends Activity
 {
@@ -30,7 +33,8 @@ public class ChattingActivity extends Activity
     private Button btnSend;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chatting_activity);
 

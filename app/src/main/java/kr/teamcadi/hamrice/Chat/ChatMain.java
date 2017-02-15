@@ -2,9 +2,11 @@ package kr.teamcadi.hamrice.Chat;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,15 +80,36 @@ public class ChatMain extends Activity
             }
         });
 
-        ctoutbtn.setOnClickListener(new View.OnClickListener() {
+        ctoutbtn.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v)
             {
-                Intent gologout = new Intent(ChatMain.this, Login.class);
-                startActivity(gologout);
+                final AlertDialog.Builder end = new AlertDialog.Builder(ChatMain.this);
+                end.setMessage("정말로 로그아웃 하시겠습니까?");
+                end.setTitle("???")
+                        .setCancelable(false)
+                        .setPositiveButton("네", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("아니요", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = end.create();
+                alert.setTitle("로그아웃창");
+                alert.show();
             }
-        }); //로그아웃으로 가는 버튼
-
+        });
         setting_btn.setOnClickListener(new View.OnClickListener()
         {
             @Override
