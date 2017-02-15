@@ -8,7 +8,5 @@ import android.graphics.drawable.Drawable;
 
 public class ChatListData
 {
-    public Drawable myProfileImg;
     public String SendMsgText;
-    public String SendMsgDate;
 }
