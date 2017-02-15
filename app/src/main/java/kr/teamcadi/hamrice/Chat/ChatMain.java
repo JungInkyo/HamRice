@@ -94,7 +94,8 @@ public class ChatMain extends Activity
                             @Override
                             public void onClick(DialogInterface dialog, int which)
                             {
-                                finish();
+                                Intent gofirstlog = new Intent(ChatMain.this, Login.class);
+                                startActivity(gofirstlog);
                             }
                         })
                         .setNegativeButton("아니요", new DialogInterface.OnClickListener()
