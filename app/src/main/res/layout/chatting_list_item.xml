@@ -21,7 +21,7 @@
         android:textColor="#000000"
         android:textStyle="bold"
         android:layout_marginLeft="100dp"
-        android:text="입력되는 메시지"/>
+        android:text="text text text text text text"/>
 
     <TextView
         android:id="@+id/SendMsgDate"

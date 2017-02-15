@@ -184,9 +184,4 @@ public class ChatMain extends Activity
         }
 
         }
-
-
-
-
-
 }
