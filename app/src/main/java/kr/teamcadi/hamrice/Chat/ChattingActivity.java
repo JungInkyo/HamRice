@@ -53,32 +53,32 @@ public class ChattingActivity extends Activity
 
                 // EditText에서 입력받아 변환된 텍스트의 길이가 0이 아니라면
                 // -> EditText를 통해서 무언가를 입력받았다면,
-                if (EnterMsgText.length() != 0) {
+                if (EnterMsgText.length() != 0)
+                {
                     Calendar calendar = Calendar.getInstance(); // 날짜와 시간을 입력하기 위한 캘린터 객체 생성
 
-                    // 입력된 채팅의 내용을 차곡차곡 리스트에 쌓음.
-                    // calendar.get(Calendar.HOUR) : 현재 시간에서 시를 출력함.
-                    // calendar.get(Calendar.MINUTE) : 현재 시간에서 분만 출력함.
-                    // calendar.get(Calendar.SECOND) : 현재 시간에서 초를 출력함.
-                    chattingListViewAdapter.addItem(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_manage, null), EnterMsgText, calendar.get(Calendar.HOUR) + " : " + calendar.get(Calendar.MINUTE) + " : " + calendar.get(Calendar.SECOND));
+                    chattingListViewAdapter.addItem( EnterMsgText);
+
+
                     EnterMsgArea.setText(""); // 메시지를 입력받는 창 초기화.
                     chattingListViewAdapter.dataChange(); // 데이터 동기화.
+                    chattingListViewAdapter.notifyDataSetChanged();
+
                 }
             }
         });
     }
 
     private class ChattingViewHolder {
-        public ImageView myProfileImg;
         public TextView SendMsgText;
-        public TextView SendMsgDate;
     }
 
     private class ChattingListViewAdapter extends BaseAdapter {
         private Context mContext = null;
         private ArrayList<ChatListData> mListData = new ArrayList<ChatListData>();
 
-        public ChattingListViewAdapter(Context mContext) {
+        public ChattingListViewAdapter(Context mContext)
+        {
             super();
             this.mContext = mContext;
         }
@@ -98,12 +98,10 @@ public class ChattingActivity extends Activity
             return position;
         }
 
-        public void addItem(Drawable myProfileImg, String SendMsgText, String SendMsgDate) {
+        public void addItem(String SendMsgText) {
             ChatListData addInfo = null;
             addInfo = new ChatListData();
-            addInfo.myProfileImg = myProfileImg;
             addInfo.SendMsgText = SendMsgText;
-            addInfo.SendMsgDate = SendMsgDate;
 
             mListData.add(addInfo);
         }
@@ -126,9 +124,7 @@ public class ChattingActivity extends Activity
                 LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.chatting_list_item, null);
 
-                holder.myProfileImg = (ImageView) convertView.findViewById(R.id.myProfileImg);
                 holder.SendMsgText = (TextView) convertView.findViewById(R.id.SendMsgText);
-                holder.SendMsgDate = (TextView) convertView.findViewById(R.id.SendMsgDate);
 
                 convertView.setTag(holder);
             } else {
@@ -137,16 +133,9 @@ public class ChattingActivity extends Activity
 
             ChatListData mData = mListData.get(position);
 
-            if (mData.myProfileImg != null) {
-                holder.myProfileImg.setVisibility(View.VISIBLE);
-                holder.myProfileImg.setImageDrawable(mData.myProfileImg);
-            } else {
-                holder.myProfileImg.setVisibility(View.VISIBLE);
-            }
 
 
             holder.SendMsgText.setText(mData.SendMsgText);
-            holder.SendMsgDate.setText(mData.SendMsgDate);
 
             return convertView;
         }

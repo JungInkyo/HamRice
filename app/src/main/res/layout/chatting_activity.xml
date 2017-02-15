@@ -6,16 +6,12 @@
     android:layout_height="match_parent"
     tools:context="kr.teamcadi.hamrice.Chat.ChattingActivity">
 
-    <ListView
-        android:id="@+id/ChattingListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linearLayout">
 
         <EditText
             android:id="@+id/EnterMsgArea"
@@ -31,4 +27,13 @@
             android:layout_height="wrap_content"
             android:text="전송"/>
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/ChattingListView"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/linearLayout"
+        android:transcriptMode="alwaysScroll"/>
 </RelativeLayout>

@@ -109,7 +109,8 @@ public class ChatMain extends Activity
         }
 
         @Override
-        public int getCount() {
+        public int getCount()
+        {
             return mListData.size();
         }
 
